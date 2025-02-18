@@ -1,44 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_nbr.c                                        :+:      :+:    :+:   */
+/*   print_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarahho <abarahho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:22:38 by abarahho          #+#    #+#             */
-/*   Updated: 2024/11/05 12:48:03 by abarahho         ###   ########.fr       */
+/*   Created: 2024/11/03 17:22:36 by abarahho          #+#    #+#             */
+/*   Updated: 2025/01/16 18:15:04 by abarahho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_nbrlen(int nb)
+int	print_c(int fd, char c)
 {
-	int	len;
-
-	len = 0;
-	if (nb <= 0)
-		len++;
-	while (nb != 0)
+	if (fd < 0)
 	{
-		nb /= 10;
-		len++;
+		ft_dprintf(2, "Invalid file descriptor: %d\n", fd);
+		return (-1);
 	}
-	return (len);
-}
-
-int	print_nbr(int n)
-{
-	unsigned int	i;
-
-	i = n;
-	if (n < 0)
+	if (write(fd, &c, 1) == -1)
 	{
-		print_c('-');
-		i = -n;
+		perror("write error in print_c");
+		return (-1);
 	}
-	if (i >= 10)
-		print_nbr(i / 10);
-	print_c((i % 10) + '0');
-	return (ft_nbrlen(n));
+	return (1);
 }

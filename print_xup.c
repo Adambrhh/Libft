@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   print_xup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarahho <abarahho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 10:41:00 by abarahho          #+#    #+#             */
-/*   Updated: 2024/12/09 10:41:03 by abarahho         ###   ########.fr       */
+/*   Created: 2024/11/03 17:22:54 by abarahho          #+#    #+#             */
+/*   Updated: 2025/01/14 13:50:11 by abarahho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
-int	ft_strcmp(char *s1, char *s2)
+int	print_xup(int fd, unsigned int n)
 {
-	int i;
+	static int	count;
 
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
+	count = 0;
+	if (n >= 16)
+		print_xup(fd, n / 16);
+	print_c(fd, "0123456789ABCDEF"[n % 16]);
+	count++;
+	return (count);
 }

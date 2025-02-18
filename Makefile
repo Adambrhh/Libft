@@ -18,6 +18,7 @@ SRCS = ft_printf.c \
        print_xlow.c \
        print_xup.c \
        print_u.c \
+       ft_isspace.c \
        ft_isdigit.c \
        ft_memset.c \
        ft_strjoin.c \
@@ -28,7 +29,7 @@ SRCS = ft_printf.c \
        ft_substr.c \
        ft_atoi.c \
        ft_itoa.c \
-	   ft_atol.c \
+	ft_atol.c \
        ft_putendl_fd.c \
        ft_strlcpy.c \
        ft_tolower.c \
@@ -42,16 +43,19 @@ SRCS = ft_printf.c \
        ft_strmapi.c \
        ft_isalnum.c \
        ft_memcmp.c \
+	ft_split_quotes.c \
        ft_split.c \
        ft_strncmp.c \
        ft_isalpha.c \
        ft_memcpy.c \
        ft_strchr.c \
+	ft_strcmp.c \
        ft_strnstr.c \
        ft_isascii.c \
        ft_strcmp.c \
        ft_memmove.c \
        ft_strdup.c \
+       ft_strndup.c \
        ft_strrchr.c \
        ft_striteri.c \
        ft_lstnew_bonus.c \

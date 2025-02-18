@@ -6,7 +6,7 @@
 /*   By: abarahho <abarahho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:44:03 by abarahho          #+#    #+#             */
-/*   Updated: 2024/11/06 09:57:47 by abarahho         ###   ########.fr       */
+/*   Updated: 2025/01/14 13:52:31 by abarahho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static int	ft_nbrlen(unsigned int nb)
 	return (len);
 }
 
-int	print_u(unsigned int n)
+int	print_u(int fd, unsigned int n)
 {
 	if (n >= 10)
-		print_nbr(n / 10);
-	print_c((n % 10) + '0');
+		print_nbr(fd, n / 10);
+	print_c(fd, (n % 10) + '0');
 	return (ft_nbrlen(n));
 }

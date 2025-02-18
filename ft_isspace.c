@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_xlow.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarahho <abarahho@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pamallet <pamallet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:22:51 by abarahho          #+#    #+#             */
-/*   Updated: 2024/11/07 10:54:25 by abarahho         ###   ########.fr       */
+/*   Created: 2025/02/10 18:14:51 by pamallet          #+#    #+#             */
+/*   Updated: 2025/02/10 18:19:51 by pamallet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	print_xlow(unsigned int n)
+int	ft_isspace(const char c)
 {
-	int	count;
-
-	count = 0;
-	if (n >= 16)
-		count += print_xlow(n / 16);
-	print_c("0123456789abcdef"[n % 16]);
-	count++;
-	return (count);
+	return (c == ' ' || (c >= 9 && c <= 13));
 }

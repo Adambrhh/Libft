@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarahho <abarahho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:39:13 by abarahho          #+#    #+#             */
-/*   Updated: 2024/11/29 17:07:32 by abarahho         ###   ########.fr       */
+/*   Updated: 2025/01/25 13:25:43 by abarahho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ char	*save_rest(char *buffer)
 {
 	int		i;
 	int		j;
-	char	*new_buffer;
 
 	if (buffer == NULL)
 		return (NULL);
@@ -76,16 +75,18 @@ char	*save_rest(char *buffer)
 		i++;
 	if (!buffer[i])
 		return (free(buffer), NULL);
-	new_buffer = malloc(sizeof(char) * (ft_strlen(buffer) - i + 1));
-	if (new_buffer == NULL)
-		return (free(buffer), NULL);
 	i++;
 	j = 0;
 	while (buffer[i])
-		new_buffer[j++] = buffer[i++];
-	new_buffer[j] = '\0';
-	free(buffer);
-	return (new_buffer);
+	{
+		buffer[j] = buffer[i];
+		i++;
+		j++;
+	}
+	buffer[j] = '\0';
+	if (j == 0)
+		return (free(buffer), NULL);
+	return (buffer);
 }
 
 char	*get_next_line(int fd)

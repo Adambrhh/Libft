@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarahho <abarahho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:22:43 by abarahho          #+#    #+#             */
-/*   Updated: 2024/11/19 14:36:35 by abarahho         ###   ########.fr       */
+/*   Created: 2024/12/09 10:41:00 by abarahho          #+#    #+#             */
+/*   Updated: 2024/12/16 09:43:32 by abarahho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	print_x(unsigned long n)
+int	ft_strcmp(char *s1, char *s2)
 {
-	static int	count;
+	int	i;
 
-	count = 0;
-	if (n >= 16)
-		print_x(n / 16);
-	print_c("0123456789abcdef"[n % 16]);
-	count++;
-	return (count);
-}
-
-int	print_p(void *ptr)
-{
-	int		res;
-	long	address;
-
-	res = 0;
-	address = (long)ptr;
-	if (ptr == NULL)
-		return (print_s("(nil)"));
-	res += print_s("0x");
-	res += print_x(address);
-	return (res);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

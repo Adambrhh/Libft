@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarahho <abarahho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 10:46:35 by abarahho          #+#    #+#             */
-/*   Updated: 2024/10/31 15:12:36 by abarahho         ###   ########.fr       */
+/*   Created: 2024/12/16 09:42:44 by abarahho          #+#    #+#             */
+/*   Updated: 2024/12/16 09:44:37 by abarahho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+long	ft_atol(const char *nptr)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	else
-		return (0);
-}
+	int		i;
+	long	nb;
+	int		sign;
 
-// int	main(int ac, char **av)
-// {
-// 	printf("%d",ft_isprint(av[1][0]));
-// 	return (0);
-// }
+	i = 0;
+	nb = 0;
+	sign = 1;
+	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
+		i++;
+	if ((nptr[i] == '-') || (nptr[i] == '+'))
+	{
+		if (nptr[i] == '-')
+			sign *= -sign;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		nb = nb * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (sign * nb);
+}

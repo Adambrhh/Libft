@@ -6,7 +6,7 @@
 /*   By: abarahho <abarahho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:39:15 by abarahho          #+#    #+#             */
-/*   Updated: 2024/12/10 17:13:13 by abarahho         ###   ########.fr       */
+/*   Updated: 2024/12/16 09:43:59 by abarahho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include "ft_printf.h"
-#include "libft.h"
+# include "libft.h"
 
 char	*get_next_line(int fd);
 char	*fill_buffer(int fd, char *buffer);
